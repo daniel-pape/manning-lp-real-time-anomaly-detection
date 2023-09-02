@@ -48,5 +48,14 @@ Finally, we can run the container:
 docker run -p 8888:8888 dp/lp-jupyter
 ```
 
+# Milestone 2
+
+Mount the working directory into the container so that
+the CSV files can be used in the Jupyter notebook for this milestone:
+
+```bash
+cd $PROJECT_DIR/jupyter
+docker run -p 8888:8888 -v (pwd):/src dp/lp-jupyter
+```
 
 
