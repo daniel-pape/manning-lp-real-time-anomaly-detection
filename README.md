@@ -58,4 +58,7 @@ cd $PROJECT_DIR/jupyter
 docker run -p 8888:8888 -v (pwd):/src dp/lp-jupyter
 ```
 
+# Milestone 3
+
+Adds Isolation Model as jobfile and the notebook `train.py`.
 
