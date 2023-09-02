@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the Docker image
+    dir: '{{.USER_WORKING_DIR}}/jupyter'
+    cmds:
+      - docker build -t dp/lp-jupyter .
+
+  build-no-cache:
+    desc: Build the Docker image without caching
+    dir: '{{.USER_WORKING_DIR}}/jupyter'
+    cmds:
+      - docker build -t dp/lp-jupyter . --no-cache
+
+  run:
+    desc: Run the Juptyer server (via Docker)
+    dir: '{{.USER_WORKING_DIR}}/jupyter'
+    cmds:
+      - docker run -p 8888:8888 -v $(pwd):/src dp/lp-jupyter
