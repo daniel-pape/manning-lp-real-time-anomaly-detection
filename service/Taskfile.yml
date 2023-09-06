@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the Docker image
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - docker build -t dp/lp-service  .
+
+  build-no-cache:
+    desc: Build the Docker image without caching
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - docker build -t dp/lp-service . --no-cache
+
+  run:
+    desc: Run the API server (via Docker)
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - docker run -p 8000:8000 dp/lp-service
+
+  run-it:
+    desc: Run in interactive mode
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - docker run -it --entrypoint /bin/bash dp/lp-service
+
+  open-docs:
+    cmds:
+      - open http://0.0.0.0:8000/docs
